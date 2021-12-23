@@ -2,9 +2,10 @@
 const body = document.querySelector('body');
 
 const title = document.createElement('div');
+title.classList.add('title');
 title.textContent = 'Etch-a-Sketch!'
 
-body.appendChild(title);
+body.insertBefore(title, body.children[0]);
 
 const container = document.querySelector('.container');
 
