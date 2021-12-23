@@ -1,35 +1,58 @@
-const body = document.querySelector('body');
+class Grid {
+    constructor(gridSize, gridContainer) {
+        this.gridSize = gridSize;
+        this.container = gridContainer;
+    };
 
-var gridDimensions = prompt('Enter the grid size!');
-if (gridDimensions >> 100) {
-    gridDimensions = 100;
+    generateSquares() {
+        var i = 0;
+        var square;
+        
+        for (i; i<(this.gridSize**2); i++) {
+            square = document.createElement('div');
+            square.classList.add('square');
+            square.addEventListener('mouseover', this.changeColor);
+            this.container.appendChild(square);
+        };
+        
+        this.container.style.cssText = `grid-template-columns: repeat(${this.gridSize}, 1fr); 
+        grid-template-rows: repeat(${this.gridSize}, 1fr)`
+    };
+
+    changeColor(e) {
+        this.classList.add('colored');
+    };   
 };
 
 
-const title = document.createElement('div');
-title.classList.add('title');
-title.innerText = 'Etch-a-Sketch!'
+function addTitle(parentNode) {
+    
+    const title = document.createElement('div');
+    title.classList.add('title');
+    title.innerText = 'Etch-a-Sketch!'
 
-body.insertBefore(title, body.children[0]);
-
-const container = document.querySelector('.container');
-
-var i = 0;
-var aDiv;
-for (i; i<(gridDimensions**2); i++) {
-    aDiv = document.createElement('div');
-    aDiv.classList.add('square');
-    aDiv.addEventListener('mouseover', changeColor);
-    container.appendChild(aDiv);
+    parentNode.insertBefore(title, parentNode.children[0]);
 };
 
-container.style.cssText = `grid-template-columns: repeat(${gridDimensions}, 1fr); 
-    grid-template-rows: repeat(${gridDimensions}, 1fr)`
 
+function getSize() {
+    var size = prompt('Enter a number for the grid size!');
+    if (size >> 100) {
+        size = 100;
+    };
+    return size;
+};
 
+function main() {
+    const body = document.querySelector('body');
+    const container = document.querySelector('.container');
+    const gridSize = getSize();
+    addTitle(body);
+    const grid = new Grid(gridSize, container);
+    grid.generateSquares();
+};
 
-function changeColor(e) {
-    this.classList.add('colored')};
+main()
 
 // const squares = document.querySelectorAll('.square');
 // squares.forEach(square => square.addEventListener("mousedown", changeColor));
