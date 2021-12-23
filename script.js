@@ -15,5 +15,13 @@ for (i; i<64; i++) {
     aDiv = document.createElement('div');
     aDiv.classList.add('square');
     container.appendChild(aDiv);
-}
+};
 
+function changeColor(e) {
+    if (e.propertyName !== 'mousedown') return;
+    this.classList.add('colored')};
+
+const squares = document.querySelectorAll('.square');
+squares.forEach(square => square.addEventListener("mousedown", changeColor));
+
+window.addEventListener('mousedown', changeColor);

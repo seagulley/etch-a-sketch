@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-    background-color: grey;
+    background-color: black;
     padding: 1px;
     width: 75vh;
     height: 75vh;
@@ -29,4 +29,8 @@ body {
 .title {
     font-size: 48px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.square.colored {
+    background-color: black;
 }
