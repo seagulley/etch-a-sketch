@@ -27,7 +27,7 @@ body {
 }
 
 .title {
-    font-size: 48px;
+    font-size: 52px;
     font-weight: bolder;
     white-space: nowrap;
 }
@@ -47,7 +47,7 @@ body {
 
 button {
     background-color: rgb(255, 193, 60);
-    font-size: 24px;
+    font-size: 32px;
     font-family: inherit;
     border-radius: 8px;
     padding-block: 8px;
