@@ -42,21 +42,24 @@ function addTitle(parentNode) {
 };
 
 function addButton(parentNode) {
-    const button = document.createElement('div');
-    button.classList.add('button');
-    button.setAttribute('onclick', 'handleNewGrid()');
-    button.innerText = 'erase';
-
+    let button = createButton();
     parentNode.appendChild(button);
 }
 
+function createButton() {
+    const button = document.createElement('button');
+    
+    button.addEventListener("click", handleNewGrid, false)
+    button.innerText = 'erase';
+
+    return button;
+}
 
 function handleNewGrid() {
     // handles the creation of a new grid.
-
     // clear the grid, get the container for the new grid
     let container = document.querySelector(".container");
-    container.clear()
+    clear(container);
     // get the new size for the grid
     let gridSize = getSize();
     // fill the container with the number for the new grid

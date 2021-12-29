@@ -45,14 +45,16 @@ body {
     font-family: monospace;
 }
 
-.button {
+button {
     background-color: rgb(255, 193, 60);
     font-size: 24px;
+    font-family: inherit;
     border-radius: 8px;
     padding-block: 8px;
     padding-inline: 16px;
+    border-style: none;
 }
 
-.button:hover {
+button:hover {
     transform: scale(1.1);
 }
