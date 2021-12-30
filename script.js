@@ -94,7 +94,7 @@ class Grid {
 
     changeColor(e) {
         // changes the color of a square.
-
+        
         this.classList.add('colored');
     };   
 
