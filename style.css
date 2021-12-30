@@ -1,24 +1,26 @@
 body {
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 1fr auto 1fr;
+    grid-template-areas: "....... header ......."
+                         "slider container color"
+                         "........ info ........";
 }
 
 .container {
+    grid-area: container;
+    background-color: grey;
     border: 2px solid grey;
     width: 600px;
     height: 600px;
+    justify-self: center;
     display: grid;
-    grid-template-columns: repeat(64, 1fr);
-    grid-template-rows: repeat(64, 1fr);
-    margin-bottom: 5vh;
 }
 
 .square {
     background-color: white;
-    margin: 0;
+
     padding: 0;
 }
 
@@ -38,8 +40,10 @@ body {
 
 .titleContainer {
     width: 600px;
+    justify-self: center;
+    grid-area: header;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-evenly;
     padding-bottom: 3vh;
     font-family: monospace;
@@ -52,13 +56,67 @@ button {
     border-radius: 8px;
     padding-block: 8px;
     padding-inline: 16px;
-    border-style: none;
+    border-style: inset;
+    border: 4px inset;
 }
 
 button:hover {
     transform: scale(1.1);
 }
 
-#gridSizeSlider {
-    background-color: aliceblue;
+
+.sliderContainer {
+    grid-area: slider;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.slider {
+    -webkit-appearance: none;
+    background: gray;
+    height: 8px;
+    width: 300px;
+    border-radius: 4px;
+    border: 4px inset black;
+    transform: rotate(-90deg);
+    align-self: center;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 40px;
+    background: rgb(216, 213, 204);
+    border-radius: 4px;
+    border: 4px inset;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+
+.colorContainer {
+    grid-area: color;
+}
+
+.info {
+    grid-area: info;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-family: monospace;
+    font-size: 24px;
+}
+
+.textAndLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#githubIcon {
+    height: 30px;
+    margin-left: 12px;
 }
