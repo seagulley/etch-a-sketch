@@ -8,7 +8,8 @@ function main() {
     let grid = new Grid(container);
     grid.generateSquares(gridSize);
 
-    
+    const slider = createSlider();
+    body.appendChild(slider)
 };
 
 function getSize() {
@@ -47,7 +48,7 @@ function addButton(parentNode) {
 }
 
 function createButton() {
-    const button = document.createElement('button');
+    const button = document.createElement("button");
     
     button.addEventListener("click", handleNewGrid, false)
     button.innerText = 'erase';
@@ -66,6 +67,25 @@ function handleNewGrid() {
     let grid = new Grid(container);
     grid.generateSquares(gridSize);
 }
+
+
+// functions for the sliders
+function createSlider() {
+    const slider = document.createElement("input");
+    slider.setAttribute("id", "gridSizeSlider");
+    setAttributes(slider, {"type": "range", "min": '0', "max": '100', "value": "50"});
+
+    const selector = document.createElement("div");
+    selector.setAttribute("id", "selector");
+
+    slider.oninput = function() {
+        selector.style.left = this.value + "%";
+    }
+    return slider;
+}
+
+
+
 
 
 class Grid {
@@ -109,5 +129,6 @@ function clear(container) {
     }
     return container;
 }
+
 main()
 
