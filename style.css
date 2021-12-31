@@ -1,11 +1,13 @@
 body {
+    font-family: monospace;
+    font-size: 24px;
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr 1fr auto 1fr 1fr;
     grid-template-rows: 1fr auto 1fr;
-    grid-template-areas: "....... header ......."
-                         "slider container color"
-                         "........ info ........";
+    grid-template-areas: ". ....... header ....... ."
+                         ". slider container color ."
+                         ". ........ info ........ .";
 }
 
 .container {
@@ -45,8 +47,7 @@ body {
     display: flex;
     align-items: flex-end;
     justify-content: space-evenly;
-    padding-bottom: 3vh;
-    font-family: monospace;
+    padding-bottom: 8vh;
 }
 
 button {
@@ -56,7 +57,6 @@ button {
     border-radius: 8px;
     padding-block: 8px;
     padding-inline: 16px;
-    border-style: inset;
     border: 4px inset;
 }
 
@@ -68,18 +68,26 @@ button:hover {
 .sliderContainer {
     grid-area: slider;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.sliderTitle {
+    font-size: 24px;
 }
 
 .slider {
     -webkit-appearance: none;
     background: gray;
+    transform-origin: 75% center;
+    transform: rotate(-90deg);
     height: 8px;
     width: 300px;
     border-radius: 4px;
     border: 4px inset black;
-    transform: rotate(-90deg);
-    align-self: center;
+    margin-top: 120px;
+    margin-right: 150px;
 }
 
 .slider::-webkit-slider-thumb {
@@ -88,7 +96,7 @@ button:hover {
     width: 20px;
     height: 40px;
     background: rgb(216, 213, 204);
-    border-radius: 4px;
+    border-radius: 8px;
     border: 4px inset;
 }
 
@@ -96,9 +104,33 @@ button:hover {
     transform: scale(1.1);
 }
 
+#colorButton {
+    margin-top: 275px;
+    font-size: 24px;
+    background-color: rgb(215, 211, 221);
+}
+
 
 .colorContainer {
     grid-area: color;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.colorTitle {
+    margin-bottom: 20px;
+}
+
+#colorSelector {
+    -webkit-appearance: none;
+    width: 100px;
+    height: 100px;
+    border: 4px inset white;
+    border-radius: 8px;
+
 }
 
 .info {
@@ -106,7 +138,6 @@ button:hover {
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
-    font-family: monospace;
     font-size: 24px;
 }
 

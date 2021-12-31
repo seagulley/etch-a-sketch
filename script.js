@@ -7,8 +7,6 @@ function main() {
     let gridSize = getSize();
     let grid = new Grid(container);
     grid.generateSquares(gridSize);
-
-    createSelector(body);
 };
 
 function getSize() {
@@ -67,42 +65,13 @@ function handleNewGrid() {
     grid.generateSquares(gridSize);
 }
 
-
-// functions for the sliders
-function createSlider(aContainer) {
-    // creates a range slider and appends it to a given container.
-
-    const slider = document.createElement("input");
-    slider.setAttribute("id", "gridSizeSlider");
-    setAttributes(slider, {"type": "range", "min": '0', "max": '100', "value": "50"});
-    
-    const selector = createSelector();
-
+function adjustGridSize(gridSize) {
+    const slider = document.querySelector(".slider");
+    var ou
     slider.oninput = function() {
-        selector.style.left = this.value + "%";
+        gridSize = this.ari;
     }
-    
-    aContainer.appendChild(slider);
-    aContainer.appendChild(selector);
 }
-
-function createSelector() {
-    // creates divs for a selector for a slider.
-
-    const selector = document.createElement("div");
-    selector.setAttribute("id", "selector");
-
-    const selectKnob = document.createElement("div");
-    selectKnob.classList.add("selectKnob");
-    selector.appendChild(selectKnob);
-
-    const selectValue = document.createElement("div");
-    selectValue.setAttribute("id", "selectValue");
-    selector.appendChild(selectValue);
-
-    return selector;
-}
-
 
 
 class Grid {

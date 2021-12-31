@@ -7,10 +7,22 @@
         <script src="script.js" defer></script>
     </head>
     <body>
-        <div class="gridAndSelectors">
-            <div class="container"></div>
-            <div class="sliderContainer">
-                <input type="range" min="2" max="100" value="64" id="gridSize" class="slider">
+        <div class="sliderContainer">
+            <div class="sliderTitle">grid size</div>
+            <input type="range" min="2" max="100" value="64" id="gridSize" class="slider">
+            <button onclick="toggleColor" id="colorButton">color mode</button>
+        </div>
+        <div class="container"></div>
+        <div class="colorContainer">
+            <div class="colorTitle">color selector</div>
+            <input type="color" value="#000000" id="colorSelector">
+        </div>
+        <div class="info">
+            <div class="textAndLink">
+                <p>Created by smootbrain</p>
+                <a href="https://github.com/smootbrain/etch-a-sketch">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" id="githubIcon">
+                </a>
             </div>
         </div>
         
